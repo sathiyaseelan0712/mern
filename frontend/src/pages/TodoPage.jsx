@@ -1,9 +1,26 @@
-function todopage() {
+import React,{useEffect,useState} from "react";
+import axois from "axios";
+function Todopage() {
+    const[todolist,setTodolist]=useState([]);
+    async function getTodoList()
+    {
+        const response= await axois.get("http://localhost:3000/");
+        setTodolist(response.data);
+    }
+    useEffect(()=>{
+        getTodoList();
+    },[]);
     return (
         <div>
-            <h1>Todo Page</h1>
-            <TodoList />
+            {
+                todolist.map((todo,index)=>
+                    <div style={{display: 'flex'}}>
+                        <input type="checkbox"  checked={todo.isCompleted?true:false}/>
+                        <p>{todo.name}</p>
+                    </div>
+                )
+            }
         </div>
     );
 }   
-export default todopage;    
+export default Todopage;    

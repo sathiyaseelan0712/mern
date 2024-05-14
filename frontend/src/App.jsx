@@ -1,15 +1,15 @@
 import {BrowserRouter,Routes, Route} from 'react-router-dom';
-import todopage from './pages/todoPage';
+import Todopage from './pages/todoPage';
 import Addtodopage from './pages/addTodopage';
-import editTodopage from './pages/editTodopage';
+import EditTodopage from './pages/editTodopage';
 function App() {
   return (
     <>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<todopage />} />
-          <Route path="/add" element={<Addtodopage />} />
-          <Route path="/edit" element={<editTodopage />} />
+          <Route path="/" element={<Todopage />} />
+          <Route path="/add/:id" element={<Addtodopage />} />
+          <Route path="/edit/:id" element={<EditTodopage />} />
         </Routes>
         </BrowserRouter>
       </>

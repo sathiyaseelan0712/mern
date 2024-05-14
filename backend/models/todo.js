@@ -6,7 +6,8 @@ const TodoModel = new  mongoose.Schema(
         type:String
     },
     isCompleted:{
-        type:Boolean
+        type:Boolean,
+        Default:true
     }   
 });
 module.exports = mongoose.model('Todo',TodoModel);

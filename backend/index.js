@@ -2,6 +2,8 @@ const express = require('express');
 const mangoose = require('mongoose');
 const todoRouter = require('./router/todo');
 const app = express();
+const cors=require('cors');
+app.use(cors());
 const port = 3000;
 app.use(express.json());
 

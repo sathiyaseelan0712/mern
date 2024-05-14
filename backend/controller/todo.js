@@ -42,10 +42,9 @@ module.exports.updateTodo = async (req, res) => {
     try {
         const todo = await Todo.findByIdAndUpdate(id, req.body);
         if (todo) {
-            res.status(200).send({ todo });
-            todo
         }
         else {
+            res.status(200).send({ todo });
             res.status(404).send({ msg: "Todo not found" });
         }
     }
